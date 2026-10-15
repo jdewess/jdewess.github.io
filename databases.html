@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Databases | Joshua Dewess</title>
+
+    <style>
+        body {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background-color: #f4f6f8;
+        }
+
+        nav {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #1f3a5f;
+            border-radius: 6px;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 5px 18px 5px 0;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        }
+
+        h1, h2 {
+            color: #1f3a5f;
+        }
+
+        .subtitle {
+            margin-top: -10px;
+            color: #555;
+        }
+
+        .download-button {
+            display: inline-block;
+            margin: 5px 10px 20px 0;
+            padding: 10px 16px;
+            color: white;
+            background-color: #1f3a5f;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .download-button:hover {
+            background-color: #315982;
+        }
+
+        footer {
+            padding: 25px 0 10px;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="code-review.html">Code Review</a>
+        <a href="software-design.html">Software Design</a>
+        <a href="algorithms.html">Algorithms</a>
+        <a href="databases.html">Databases</a>
+    </nav>
+
+    <main class="content">
+        <h1>Databases</h1>
+        <p class="subtitle">CS 360 Weight Tracker Android Application</p>
+
+        <a class="download-button"
+           href="CS499_Milestone_Four_Artifact.zip"
+           download>
+            Download Original and Enhanced Code
+        </a>
+
+        <a class="download-button"
+           href="CS499_Milestone_Four_Narrative.docx"
+           download>
+            Download Narrative
+        </a>
+
+        <h2>Artifact Description</h2>
+
+        <p>
+            The artifact I selected is my Weight Tracker Android app from
+            CS 360. I originally made it with Kotlin, Android Studio, and
+            SQLite. Users can create an account, sign in, record their weight,
+            set a goal, and view their progress. I picked this project because
+            the database already worked, but it was basic enough that I could
+            make a noticeable improvement.
+        </p>
+
+        <h2>Reason for Including the Artifact</h2>
+
+        <p>
+            I included this app because it shows how a database works inside a
+            real mobile application. In the original version, the app stored
+            users and weight entries, but it replaced the old goal every time
+            the user entered a new one.
+        </p>
+
+        <p>
+            For this enhancement, I upgraded the database to version 3 and
+            added goal history, date-range queries, summary statistics, and
+            indexes for user-and-date searches. The dashboard now shows the
+            number of entries, average weight, and total change. The goal
+            screen also shows recent goals instead of only the current one.
+            I included a migration so older information is kept when the
+            database is upgraded.
+        </p>
+
+        <h2>Course Outcomes</h2>
+
+        <p>
+            This enhancement mainly supports course outcome four because I
+            used Android and SQLite tools to add useful features to the app.
+            It also supports outcome three because I had to think about query
+            organization, database indexes, and the trade-off between better
+            performance and added complexity.
+        </p>
+
+        <p>
+            I addressed outcome five by using parameterized queries,
+            user-specific filters, foreign keys, and validation rules. These
+            changes help protect each user's information and keep invalid data
+            out of the database. My narrative and code documentation also help
+            support the communication outcome.
+        </p>
+
+        <h2>Reflection</h2>
+
+        <p>
+            The biggest thing I learned is that improving a database involves
+            more than adding another table. I had to make sure the database,
+            service classes, and screens all worked together.
+        </p>
+
+        <p>
+            The hardest part was planning the migration because I did not want
+            older users to lose their saved information. I also learned why
+            indexes are helpful when the app repeatedly searches by user and
+            date.
+        </p>
+
+        <p>
+            I added tests for migrations, account separation, goal history,
+            date ranges, and summary calculations. Overall, this enhancement
+            made the app more useful and gave me a better understanding of
+            database design, upgrades, and security.
+        </p>
+    </main>
+
+    <footer>
+        <p>Joshua Dewess | CS 499 Computer Science Capstone</p>
+    </footer>
+</body>
+</html>
