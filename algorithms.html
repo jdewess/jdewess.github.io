@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms and Data Structures | Joshua Dewess</title>
+
+    <style>
+        body {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background-color: #f4f6f8;
+        }
+
+        nav {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #1f3a5f;
+            border-radius: 6px;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 5px 18px 5px 0;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        }
+
+        h1, h2 {
+            color: #1f3a5f;
+        }
+
+        .subtitle {
+            margin-top: -10px;
+            color: #555;
+        }
+
+        .download-button {
+            display: inline-block;
+            margin: 5px 10px 20px 0;
+            padding: 10px 16px;
+            color: white;
+            background-color: #1f3a5f;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .download-button:hover {
+            background-color: #315982;
+        }
+
+        footer {
+            padding: 25px 0 10px;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="code-review.html">Code Review</a>
+        <a href="software-design.html">Software Design</a>
+        <a href="algorithms.html">Algorithms</a>
+        <a href="databases.html">Databases</a>
+    </nav>
+
+    <main class="content">
+        <h1>Algorithms and Data Structures</h1>
+        <p class="subtitle">CS 330 C++ and OpenGL Graphics Project</p>
+
+        <a class="download-button"
+           href="CS499_Milestone_Three_Artifact.zip"
+           download>
+            Download Original and Enhanced Code
+        </a>
+
+        <a class="download-button"
+           href="CS499_Milestone_Three_Narrative_Shortened.docx"
+           download>
+            Download Narrative
+        </a>
+
+        <h2>Artifact Description</h2>
+
+        <p>
+            This artifact is a C++ and OpenGL program I created in CS 330.
+            It displays a 3D desk scene with a counter, laptop, book, mug,
+            mouse, and lamp. The project uses basic meshes, textures,
+            materials, lighting, and camera controls to build the scene.
+        </p>
+
+        <h2>Reason for Selecting and Improving the Artifact</h2>
+
+        <p>
+            I picked this artifact because the scene worked, but the original
+            code used a separate block of drawing commands for every object.
+            That approach was fine for a small class project, but it would
+            become harder to manage as more objects were added.
+        </p>
+
+        <p>
+            For the enhancement, I created a SCENE_OBJECT structure and stored
+            the objects in a vector. I also used unordered maps for textures,
+            materials, and object names. This changes common searches from
+            O(n) to an average of O(1).
+        </p>
+
+        <p>
+            A stable O(n log n) sort groups similar objects before the program
+            uses one O(n) loop to render the scene. I also added checks for
+            duplicate object names and the texture limit.
+        </p>
+
+        <h2>Course Outcomes</h2>
+
+        <p>
+            This enhancement met the main outcome I planned for algorithms and
+            data structures. I selected a vector for moving through the objects
+            in order, hash maps for faster lookup, and stable sorting to
+            organize the objects before rendering.
+        </p>
+
+        <p>
+            There is a tradeoff because the indexes use extra memory and must
+            be rebuilt after sorting, but the new design is easier to expand.
+            The work also supports the outcome about using appropriate
+            computing tools and techniques. My written explanation supports
+            the communication outcome.
+        </p>
+
+        <h2>Reflection</h2>
+
+        <p>
+            The biggest thing I learned was that data structures can improve
+            organization as well as speed. Moving the object settings into one
+            structure made the rendering process much shorter and separated the
+            scene data from the drawing logic.
+        </p>
+
+        <p>
+            One challenge was making sure every original transformation,
+            texture, material, and mesh type was transferred correctly. I also
+            had to rebuild the name index after sorting because the objects
+            changed positions in the vector.
+        </p>
+
+        <p>
+            Before the final ePortfolio submission, I planned to run the
+            enhanced project in the complete CS 330 Visual Studio environment,
+            compare it with the original, and make any changes recommended by
+            my instructor.
+        </p>
+
+        <p>
+            The portfolio ZIP contains the original and enhanced C++ source,
+            shaders, and Visual Studio project files. The large texture image
+            files were unchanged by this enhancement and are not duplicated in
+            the portfolio download.
+        </p>
+    </main>
+
+    <footer>
+        <p>Joshua Dewess | CS 499 Computer Science Capstone</p>
+    </footer>
+</body>
+</html>
