@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Design and Engineering | Joshua Dewess</title>
+
+    <style>
+        body {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background-color: #f4f6f8;
+        }
+
+        nav {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #1f3a5f;
+            border-radius: 6px;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 5px 18px 5px 0;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        }
+
+        h1, h2 {
+            color: #1f3a5f;
+        }
+
+        .subtitle {
+            margin-top: -10px;
+            color: #555;
+        }
+
+        .download-button {
+            display: inline-block;
+            margin: 5px 10px 20px 0;
+            padding: 10px 16px;
+            color: white;
+            background-color: #1f3a5f;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .download-button:hover {
+            background-color: #315982;
+        }
+
+        footer {
+            padding: 25px 0 10px;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="code-review.html">Code Review</a>
+        <a href="software-design.html">Software Design</a>
+        <a href="algorithms.html">Algorithms</a>
+        <a href="databases.html">Databases</a>
+    </nav>
+
+    <main class="content">
+        <h1>Software Design and Engineering</h1>
+        <p class="subtitle">CS 360 Weight Tracker Android Application</p>
+
+        <a class="download-button"
+           href="CS499_Milestone_Two_Artifact.zip"
+           download>
+            Download Original and Enhanced Code
+        </a>
+
+        <a class="download-button"
+           href="CS499_Milestone_Two_Narrative.docx"
+           download>
+            Download Narrative
+        </a>
+
+        <h2>Artifact and Origin</h2>
+
+        <p>
+            The artifact I chose is my Weight Tracker Android app, which I
+            created for a previous mobile development course, most likely
+            CS 360. The original app was written in Kotlin and let a user
+            create an account, sign in, record and delete weights, set a goal
+            weight, and configure an SMS reminder. I selected the existing
+            project files as the starting point for this enhancement. I do not
+            have the exact date I originally created the app.
+        </p>
+
+        <h2>Why I Chose It and What I Changed</h2>
+
+        <p>
+            I chose this app because it already has several connected features,
+            so its design decisions affect a real user experience. In the
+            original version, the screens called the database helper directly.
+            The database also stored passwords as plain text, and weight
+            entries and the goal were shared across accounts.
+        </p>
+
+        <p>
+            For this milestone, I added a service layer and a repository
+            interface so the screens handle display and interaction while the
+            service handles validation and application rules. Database work now
+            runs away from the main screen thread. I added input checks, a
+            progress summary on the dashboard, and a logout action.
+        </p>
+
+        <p>
+            New accounts use salted password hashes, and an existing plain text
+            password is upgraded after a successful sign in. I changed database
+            access so entries and goals belong to an account, and I wrote an
+            upgrade path meant to preserve existing records. The downloadable
+            ZIP file contains both the original and enhanced source code.
+        </p>
+
+        <h2>Course Outcomes</h2>
+
+        <p>
+            This work makes the most progress toward the outcome about using
+            appropriate computing techniques and tools to deliver a useful
+            solution. I used Kotlin, Android activities, a service and
+            repository structure, and SQLite to make the app easier to extend.
+        </p>
+
+        <p>
+            It also supports the security outcome because account data is
+            separated, passwords are handled more carefully, and input is
+            checked before saving. I practiced evaluating tradeoffs when
+            deciding how to migrate older shared records. The upgrade assigns
+            them to the oldest existing account, or to the first newly created
+            account if no account existed.
+        </p>
+
+        <p>
+            My narrative and code review support the communication outcome. I
+            still plan to show more algorithm and data structure work in the
+            CS 330 graphics project and deeper database work in a later Weight
+            Tracker enhancement.
+        </p>
+
+        <h2>Reflection and Remaining Work</h2>
+
+        <p>
+            The hardest part was changing an app that already had saved data.
+            Replacing the database tables without a migration would erase a
+            user's history, so I had to think through what should happen when
+            older entries had no account owner.
+        </p>
+
+        <p>
+            I learned that moving code into separate classes is only useful
+            when the responsibilities are clear and the screens still behave
+            correctly. I added unit tests for validation and password handling
+            and Android tests for the database upgrade and account separation.
+        </p>
+
+        <p>
+            I checked the XML files, but I could not run the Gradle or Android
+            test suite in the original development environment because the
+            required Gradle distribution could not be downloaded. Before the
+            final ePortfolio submission, I planned to build and run the app in
+            Android Studio, run the tests on an emulator, and use instructor
+            feedback to address any issues. The SMS feature still uses the
+            emulator number from the original course project, so that feature
+            would need additional review before being used outside a class
+            demonstration.
+        </p>
+    </main>
+
+    <footer>
+        <p>Joshua Dewess | CS 499 Computer Science Capstone</p>
+    </footer>
+</body>
+</html>
